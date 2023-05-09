@@ -1,0 +1,103 @@
+swagger: "2.0"
+info:
+  title: "First Swagger Api"
+  description: |-
+    This is a sample first api
+  version: "1.0.11"
+tags:
+- name: "event"
+  description: "event tag"
+paths:
+  /event:
+    post:
+      tags:
+        - "event"
+      summary: "add event"
+      operationId: "createEvent"
+      parameters:
+      - in: "body"
+        name: "body"
+        required: true
+        schema:
+          $ref: "#/definitions/Event"
+      responses:
+        "200":
+          description: "Event created"
+  /event/{id}: 
+    put:
+      tags:
+        - "event"
+      summary: "add event"
+      operationId: "updateEvent"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "Event object to update"
+        required: true
+        type: "integer"
+      responses:
+          "200":
+            description: "Scuccess"
+          "405":
+            description: "Invalid input"
+    get:
+      tags:
+        - "event"
+      summary: "get event"
+      operationId: "getEvent"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "Event object to get"
+        required: true
+        type: "integer"
+      responses:
+        "405":
+          description: "Invalid input"
+    delete:
+      tags:
+        - "event"
+      summary: "delete event"
+      operationId: "deleteEvent"
+      parameters:
+      - in: "path"
+        name: "id"
+        description: "Event object to delete"
+        required: true
+        type: "integer"
+      responses:
+        "405":
+          description: "Invalid input"
+definitions:
+  Event:
+    type: "object"
+    required:
+    - "id"
+    properties:
+      id: 
+        type: "integer"
+        format: "int64"
+      name:
+        type: "string"
+      date: 
+        type: "string"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
